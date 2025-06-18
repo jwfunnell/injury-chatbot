@@ -3,26 +3,20 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Responsive AI Chatbot</title>
+  <title>Lawyer Match Chatbot</title>
   <style>
     html, body {
       margin: 0;
       padding: 0;
       height: 100%;
-      width: 100%;
       font-family: Arial, sans-serif;
       background: #f8f9fa;
-      box-sizing: border-box;
-    }
-
-    *, *::before, *::after {
-      box-sizing: inherit;
     }
 
     .chat-container {
       display: flex;
       flex-direction: column;
-      height: 100%;
+      height: 100vh;
       width: 100%;
       background: white;
     }
@@ -36,16 +30,19 @@
 
     .chat-messages {
       flex: 1;
-      padding: 20px;
+      padding: 15px;
       overflow-y: auto;
       background: #f8f9fa;
+      display: flex;
+      flex-direction: column;
     }
 
     .message {
-      margin-bottom: 10px;
-      padding: 10px 15px;
+      margin-bottom: 12px;
+      padding: 12px 16px;
       border-radius: 10px;
       max-width: 75%;
+      line-height: 1.5;
       animation: fadeIn 0.3s ease-out;
     }
 
@@ -64,21 +61,26 @@
     .chat-input {
       display: flex;
       border-top: 1px solid #ddd;
+      padding: 8px;
+      background: white;
     }
 
     .chat-input input {
       flex: 1;
       padding: 10px;
-      border: none;
+      border: 1px solid #ccc;
+      border-radius: 6px 0 0 6px;
       font-size: 16px;
     }
 
     .chat-input button {
-      padding: 10px;
+      padding: 10px 16px;
       background: #1a73e8;
       color: white;
       border: none;
+      border-radius: 0 6px 6px 0;
       cursor: pointer;
+      font-weight: bold;
     }
 
     @keyframes fadeIn {
@@ -92,49 +94,50 @@
     <div class="chat-header">Let’s Find the Right Lawyer Match for You</div>
     <div class="chat-messages" id="chat-messages"></div>
     <form class="chat-input" id="chat-form">
-      <input type="text" id="message-input" placeholder="Type your message..." />
+      <input type="text" id="message-input" placeholder="Type your message..." autocomplete="off" />
       <button type="submit">Send</button>
     </form>
   </div>
 
   <script>
-    const messagesEl = document.getElementById('chat-messages');
-    const formEl = document.getElementById('chat-form');
-    const inputEl = document.getElementById('message-input');
+    window.onload = function () {
+      const messagesEl = document.getElementById('chat-messages');
+      const formEl = document.getElementById('chat-form');
+      const inputEl = document.getElementById('message-input');
 
-    function appendMessage(content, type = 'incoming') {
-      const div = document.createElement('div');
-      div.className = 'message ' + type;
-      div.textContent = content;
-      messagesEl.appendChild(div);
-      messagesEl.scrollTop = messagesEl.scrollHeight;
-    }
+      function appendMessage(content, type = 'incoming') {
+        const div = document.createElement('div');
+        div.className = 'message ' + type;
+        div.textContent = content;
+        messagesEl.appendChild(div);
+        messagesEl.scrollTop = messagesEl.scrollHeight;
+      }
 
-    function mockAIResponse(userMessage) {
-      const lower = userMessage.toLowerCase();
-      if (lower.includes('accident')) return "Can you tell me when the accident happened?";
-      if (lower.includes('yesterday')) return "Were there any injuries sustained?";
-      if (lower.includes('yes')) return "Got it. What kind of treatment have you received so far?";
-      if (lower.includes('surgery') || lower.includes('er')) return "Thanks for sharing. We'll make sure this info gets to the right team.";
-      return "Thanks for the information. A legal expert will follow up soon.";
-    }
+      function mockAIResponse(userMessage) {
+        const lower = userMessage.toLowerCase();
+        if (lower.includes('accident')) return "Can you tell me when the accident happened?";
+        if (lower.includes('yesterday')) return "Were there any injuries sustained?";
+        if (lower.includes('yes')) return "Got it. What kind of treatment have you received so far?";
+        if (lower.includes('surgery') || lower.includes('er')) return "Thanks for sharing. We'll make sure this info gets to the right team.";
+        return "Thanks for the information. A legal expert will follow up soon.";
+      }
 
-    formEl.addEventListener('submit', function (e) {
-      e.preventDefault();
-      const message = inputEl.value.trim();
-      if (!message) return;
+      formEl.addEventListener('submit', function (e) {
+        e.preventDefault();
+        const message = inputEl.value.trim();
+        if (!message) return;
 
-      appendMessage(message, 'outgoing');
-      inputEl.value = '';
+        appendMessage(message, 'outgoing');
+        inputEl.value = '';
 
-      setTimeout(() => {
-        const response = mockAIResponse(message);
-        appendMessage(response, 'incoming');
-      }, 800);
-    });
+        setTimeout(() => {
+          const response = mockAIResponse(message);
+          appendMessage(response, 'incoming');
+        }, 800);
+      });
 
-    // Initial greeting
-    appendMessage("Hey, let’s get started to match you with the best lawyer for your accident or injury case.");
+      appendMessage("👋 Hey! I'm here to match you with the best lawyer for your accident or injury case.", 'incoming');
+    };
   </script>
 </body>
 </html>
