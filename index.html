@@ -3,38 +3,44 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Personal Injury AI Chat - Demo</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <title>Responsive AI Chatbot</title>
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #f8f9fa;
+    html, body {
       margin: 0;
-      padding: 0; /* Removed body padding */
+      padding: 0;
+      height: 100%;
+      width: 100%;
+      font-family: Arial, sans-serif;
+      background: #f8f9fa;
+      box-sizing: border-box;
     }
+
+    *, *::before, *::after {
+      box-sizing: inherit;
+    }
+
     .chat-container {
-      max-width: 600px;
-      margin: auto;
-      border-radius: 12px;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-      background: white;
       display: flex;
       flex-direction: column;
-      height: 500px;
+      height: 100%;
+      width: 100%;
+      background: white;
     }
+
     .chat-header {
       background: #1a73e8;
       color: white;
       padding: 15px;
       font-weight: bold;
     }
+
     .chat-messages {
       flex: 1;
-      padding: 20px; /* Optional: remove or reduce this if you want tighter layout */
+      padding: 20px;
       overflow-y: auto;
       background: #f8f9fa;
     }
+
     .message {
       margin-bottom: 10px;
       padding: 10px 15px;
@@ -42,26 +48,31 @@
       max-width: 75%;
       animation: fadeIn 0.3s ease-out;
     }
+
     .incoming {
       background: #fff;
       align-self: flex-start;
       border: 1px solid #ddd;
     }
+
     .outgoing {
       background: #1a73e8;
       color: white;
       align-self: flex-end;
     }
+
     .chat-input {
       display: flex;
       border-top: 1px solid #ddd;
     }
+
     .chat-input input {
       flex: 1;
       padding: 10px;
       border: none;
       font-size: 16px;
     }
+
     .chat-input button {
       padding: 10px;
       background: #1a73e8;
@@ -69,6 +80,7 @@
       border: none;
       cursor: pointer;
     }
+
     @keyframes fadeIn {
       from { opacity: 0; transform: translateY(10px); }
       to { opacity: 1; transform: translateY(0); }
