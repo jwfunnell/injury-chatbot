@@ -4,8 +4,10 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Lawyer Match Chatbot</title>
+
   <!-- Load Material Icons -->
-      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
   <style>
     html, body {
       margin: 0;
@@ -88,6 +90,48 @@
     @keyframes fadeIn {
       from { opacity: 0; transform: translateY(10px); }
       to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Updated styles for option buttons */
+    .chat-input-options-inline {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 15px;
+      justify-content: flex-start;
+    }
+
+    .chat-option-btn-inline {
+      background: #ffffff;
+      color: #1a73e8;
+      border: 2px solid #1a73e8;
+      border-radius: 30px;
+      padding: 10px 18px;
+      cursor: pointer;
+      font-size: 14px;
+      font-weight: 500;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.2s ease;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    }
+
+    .chat-option-btn-inline:hover {
+      background-color: #1a73e8;
+      color: #ffffff;
+      transform: translateY(-1px);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    .chat-option-btn-inline:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
+
+    .material-icons {
+      font-size: 18px;
+      vertical-align: middle;
     }
   </style>
 </head>
@@ -694,4 +738,3 @@ document.addEventListener('DOMContentLoaded', function() {
    </script>
 </body>
 </html>
-
