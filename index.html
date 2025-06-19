@@ -1,4 +1,20 @@
-<!DOCTYPE html>
+<iframe 
+  src="https://jwfunnell.github.io/injury-chatbot/" 
+  style="height: 550px; width: 100%; max-width: 700px; border: 2px solid #d3d3d3;" 
+  loading="lazy">
+</iframe>
+
+
+
+Widen the white chat area to have the same width as the left side. 
+First here is the squarespace iframecode: 
+<iframe
+src="https://jwfunnell.github.io/injury-chatbot/"
+style="height: 550px; width: 100%; max-width: 700px; border: 2px solid #d3d3d3;"
+loading="lazy">
+</iframe> 
+and now second the full github code:
+​​<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -16,15 +32,17 @@
       font-family: Arial, sans-serif;
       background: #f8f9fa;
     }
-
     .chat-container {
       display: flex;
       flex-direction: column;
       height: 100vh;
       width: 100%;
+      max-width: 700px; /* matches your iframe max-width */
+      margin: 0 auto; /* centers horizontally */
       background: white;
+      border-radius: 10px;
+      box-shadow: 0 0 12px rgba(0, 0, 0, 0.05);
     }
-
     .chat-header {
       background: #045083;
       color: white;
