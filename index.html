@@ -232,7 +232,7 @@ document.addEventListener('DOMContentLoaded', function() {
    // Start the conversation
    function startConversation() {
        // Display welcome message
-       createIncomingMessage("Hey, I’'m ready to find you the best possible attorneys for your unique accident or injury. Let’s get started");
+       createIncomingMessage("Hey, I’m ready to find the best possible attorneys for your particular accident or injury. Let’s get started now.");
       
        // Show the first question after a short delay
        setTimeout(() => {
@@ -240,7 +240,6 @@ document.addEventListener('DOMContentLoaded', function() {
        }, 1000);
    }
   
-   // Show the next question
    // Show the next question
    function showNextQuestion() {
        if (currentQuestion < questions.length) {
@@ -250,16 +249,13 @@ document.addEventListener('DOMContentLoaded', function() {
            const messageDiv = document.createElement('div');
            messageDiv.classList.add('message', 'incoming');
           
-           // Add question number
-           const questionNumberDiv = document.createElement('div');
-           questionNumberDiv.classList.add('question-number');
-           questionNumberDiv.textContent = `Question ${currentQuestion + 1} of ${totalQuestions}`;
-           messageDiv.appendChild(questionNumberDiv);
-          
-           // Add question text
+
+           // Add question text with progress
            const questionTextDiv = document.createElement('div');
-           questionTextDiv.textContent = question.text;
+           questionTextDiv.textContent = `${question.text} (${currentQuestion + 1}/${totalQuestions})`;
            messageDiv.appendChild(questionTextDiv);
+
+
           
            // Check if it's a multiple choice or text input question
            if (question.type === "text" || question.type === "email" || question.type === "tel") {
