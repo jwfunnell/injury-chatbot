@@ -32,25 +32,26 @@
       font-weight: bold;
     }
 
-    .chat-messages {
-      flex: 1;
-      padding: 5px;
-      overflow-y: auto;
-      background: #f8f9fa;
-      display: flex;
-      flex-direction: column;
-      max-width: 640px;
-      margin: 0 auto;
-    }
+.chat-messages {
+  flex: 1;
+  padding: 15px;
+  overflow-y: auto;
+  background: #f8f9fa;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* center messages */
+}
 
-    .message {
-      margin-bottom: 12px;
-      padding: 12px 16px;
-      border-radius: 10px;
-      max-width: 75%;
-      line-height: 1.5;
-      animation: fadeIn 0.3s ease-out;
-    }
+.message {
+  margin-bottom: 12px;
+  padding: 12px 16px;
+  border-radius: 10px;
+  width: 100%;
+  max-width: 640px; /* same width constraint */
+  line-height: 1.5;
+  animation: fadeIn 0.3s ease-out;
+  box-sizing: border-box;
+}
 
     .incoming {
       background: #fff;
@@ -96,12 +97,12 @@
 
     /* Updated styles for option buttons */
 
-
-    .chat-input-options-inline {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 12px 16px;
-      margin-top: 15px;
+.chat-input-options-inline {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px 16px;
+  margin-top: 15px;
+  width: 100%;
 }
 
     .chat-option-btn-inline {
