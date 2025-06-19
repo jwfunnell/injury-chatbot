@@ -93,13 +93,14 @@
     }
 
     /* Updated styles for option buttons */
+
+
     .chat-input-options-inline {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px 16px;
       margin-top: 15px;
-      justify-content: flex-start;
-    }
+}
 
     .chat-option-btn-inline {
       background: #ffffff;
@@ -110,11 +111,14 @@
       cursor: pointer;
       font-size: 14px;
       font-weight: 500;
-      display: inline-flex;
+      display: flex;
       align-items: center;
-      gap: 8px;
+      ustify-content: flex-start;
+      gap: 10px;
       transition: all 0.2s ease;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+      width: 100%;
+      box-sizing: border-box;
     }
 
     .chat-option-btn-inline:hover {
@@ -738,4 +742,3 @@ document.addEventListener('DOMContentLoaded', function() {
    </script>
 </body>
 </html>
-
