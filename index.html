@@ -193,14 +193,14 @@ document.addEventListener('DOMContentLoaded', function() {
            text: "What type of accident or injury were you involved in?",
            options: [
                { value: "Car Accident", icon: "directions_car" },
+               { value: "Uber/Lyft (Rideshare) Accident", icon: "local_taxi" },
+               { value: "Hit and Run Accident", icon: "directions_run" },
+               { value: "Pedestrian or Bicycle Accident", icon: "pedal_bike" },
                { value: "Motorcycle Injury", icon: "two_wheeler" },
-               { value: "Uber/Lyft/Rideshare Accident", icon: "local_taxi" },
                { value: "Commercial Truck Accident", icon: "local_shipping" },
-               { value: "Hit & Run Accident", icon: "directions_run" },
-               { value: "Pedestrian/Bicycle Accident", icon: "pedal_bike" },
                { value: "Slip, Trip, or Fall Injury", icon: "downhill_skiing" },
-               { value: "Workplace Accident or Injury", icon: "work" }
                { value: "Dog Bite or Animal Attack", icon: "pets" },
+               { value: "Workplace Injury or Accident", icon: "work" }
            ],
            formField: 'accidentType'
        },
@@ -213,29 +213,29 @@ document.addEventListener('DOMContentLoaded', function() {
            formField: 'inCalifornia'
        },
        {
-           text: "When was the accident or injury?",
+           text: "When did the accident or injury happen?",
            options: [
-               { value: "Last 3 days", icon: "today" },
-               { value: "Last 3 months", icon: "date_range" },
+               { value: "Within the last 3 days", icon: "today" },
+               { value: "Within the last 3 months", icon: "date_range" },
                { value: "3 months to 2 years ago", icon: "event" },
                { value: "More than 2 years ago", icon: "event_busy" }
            ],
            formField: 'whenHappened'
        },
        {
-           text: "Were there any injuries? (Select the most relevant)",
+           text: "What were the injuries? (Select the most relevant)",
            options: [
                { value: "Back / Neck Injury", icon: "accessibility" },
                { value: "Head Injury", icon: "psychology" },
-               { value: "Broken Bone", icon: "orthopedics" },
-               { value: "Death of Loved One", icon: "feedback" },
+               { value: "Broken bone", icon: "orthopedics" },
+               { value: "Death", icon: "feedback" },
                { value: "Other", icon: "healing" },
-               { value: "Not Sure At This Time", icon: "help" }
+               { value: "Not sure at this time", icon: "help" }
            ],
            formField: 'injuries'
        },
        {
-           text: "Has there been any treatment yet?",
+           text: "What was the treatment?",
            options: [
                { value: "ER or Doctor Visit", icon: "local_hospital" },
                { value: "Surgery Done or Recommended", icon: "medical_services" },
@@ -246,10 +246,9 @@ document.addEventListener('DOMContentLoaded', function() {
            ],
            formField: 'treatment'
        },
-
        // New contact information questions
        {
-           text: "Please provide your name:",
+           text: "Please provide your full name:",
            type: "text",
            formField: 'name',
            placeholder: "Enter your full name",
@@ -258,9 +257,8 @@ document.addEventListener('DOMContentLoaded', function() {
            },
            errorMessage: "Please enter your name"
        },
-
        {
-           text: "What is your email address?",
+           text: "What's your email address?",
            type: "email",
            formField: 'email',
            placeholder: "example@email.com",
@@ -269,10 +267,9 @@ document.addEventListener('DOMContentLoaded', function() {
                return emailRegex.test(value);
            },
            errorMessage: "Please enter a valid email address"
-       }
-,
+       },
        {
-           text: "What is the best phone number to reach you?",
+           text: "What's your phone number?",
            type: "tel",
            formField: 'phoneNumber',
            placeholder: "(555) 123-4567",
@@ -296,6 +293,7 @@ document.addEventListener('DOMContentLoaded', function() {
        }, 1000);
    }
   
+   // Show the next question
    // Show the next question
    function showNextQuestion() {
        if (currentQuestion < questions.length) {
