@@ -213,7 +213,7 @@ document.addEventListener('DOMContentLoaded', function() {
            formField: 'inCalifornia'
        },
        {
-           text: "When did the accident or injury happen?",
+           text: "When was the accident or injury?",
            options: [
                { value: "Last 3 days", icon: "today" },
                { value: "Last 3 months", icon: "date_range" },
@@ -223,7 +223,7 @@ document.addEventListener('DOMContentLoaded', function() {
            formField: 'whenHappened'
        },
        {
-           text: "What were the injuries? (Select the most relevant)",
+           text: "Were there any injuries? (Select the most relevant)",
            options: [
                { value: "Back / Neck Injury", icon: "accessibility" },
                { value: "Head Injury", icon: "psychology" },
@@ -246,9 +246,10 @@ document.addEventListener('DOMContentLoaded', function() {
            ],
            formField: 'treatment'
        },
+
        // New contact information questions
        {
-           text: "Please provide your full name:",
+           text: "Please provide your name:",
            type: "text",
            formField: 'name',
            placeholder: "Enter your full name",
@@ -257,8 +258,9 @@ document.addEventListener('DOMContentLoaded', function() {
            },
            errorMessage: "Please enter your name"
        },
+
        {
-           text: "What's your email address?",
+           text: "What is your email address?",
            type: "email",
            formField: 'email',
            placeholder: "example@email.com",
@@ -267,7 +269,8 @@ document.addEventListener('DOMContentLoaded', function() {
                return emailRegex.test(value);
            },
            errorMessage: "Please enter a valid email address"
-       },
+       }
+,
        {
            text: "What is the best phone number to reach you?",
            type: "tel",
@@ -744,4 +747,5 @@ document.addEventListener('DOMContentLoaded', function() {
    </script>
 </body>
 </html>
+
 
